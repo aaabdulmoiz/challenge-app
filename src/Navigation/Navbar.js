@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div>
       <header style={hstyle}>
-        <h1 style={{ "font-size": "40px" }}>Challenge</h1>
+        <h1 style={{ fontSize: "40px" }}>Challenge</h1>
         <Link to="/" style={lstyle}>
           Pic Some
         </Link>
