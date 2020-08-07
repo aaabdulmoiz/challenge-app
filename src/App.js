@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { PhotoProvider } from "./Context/PhotoContext";
 
 const App = (props) => {
+  //Wrapped all components in the Provider so values can be accessed across all components
   return (
     <PhotoProvider>
       <Navbar />
