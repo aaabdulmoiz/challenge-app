@@ -1,6 +1,10 @@
 <h1>Parhako Challenge</h1>
 
+
+<b>Note: Screenshots of the Project are in the end.</b>
+
 I did this challenge as much as I could do in a day. It was my first time working with only Function Based Components in React.
+
 
 
 Created Component of <b>Cart</b> and <b>Photos</b>, placed the in the Pages Folder and setup a Router
