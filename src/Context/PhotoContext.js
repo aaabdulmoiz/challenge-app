@@ -23,7 +23,6 @@ export const PhotoProvider = (props) => {
         .catch(console.log(""));
     }
   }, []);
-
   return (
     <PhotoContext.Provider
       value={{ photos: [photo, setPhoto], loader: [loading, setLoading] }}
