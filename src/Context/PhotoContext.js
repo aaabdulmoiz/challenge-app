@@ -5,7 +5,7 @@ export const PhotoContext = createContext();
 export const PhotoProvider = (props) => {
   //hooks for loading the photos and inb4 the loads
   const [photo, setPhoto] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [waitPhotos, setWaitPhotos] = useState(true);
 
   //Runs when the component renders
   useEffect(() => {
@@ -13,24 +13,22 @@ export const PhotoProvider = (props) => {
     fetchPhotos();
 
     async function fetchPhotos() {
-      //the data from api contains attributes such as url, isFavorited, id
       const url =
         "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json";
 
-      fetch(url)
-        .then((res) => res.json())
-        .then((arr) => {
-          setPhoto(arr);
-          setLoading(false);
-        })
-        .catch(console.log(""));
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        setPhoto(json);
+        setWaitPhotos(false);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }, []);
   return (
     //Passing the data through Context
-    <PhotoContext.Provider
-      value={{ photos: [photo, setPhoto], loader: [loading, setLoading] }}
-    >
+    <PhotoContext.Provider value={[photo, setPhoto]}>
       {props.children}
     </PhotoContext.Provider>
   );
